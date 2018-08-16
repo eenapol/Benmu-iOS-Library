@@ -48,6 +48,27 @@
         }
         return nil;
     }
+    
+    if ([url containsString:@":var/"])
+    {
+        NSFileManager *fm = [NSFileManager defaultManager];
+        if ([fm fileExistsAtPath:url]) {
+            UIImage *image = [UIImage imageWithContentsOfFile:url];
+            NSError *error = nil;
+            if (!image) {
+                error = [NSError errorWithDomain:NSURLErrorDomain code:-1100 userInfo:@{NSLocalizedDescriptionKey:@"本地缓存的图片加载失败"}];
+            }
+            if (completedBlock) {
+                completedBlock(image,error,YES);
+            }
+        } else {
+            if (completedBlock) {
+                NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:-1100 userInfo:@{NSLocalizedDescriptionKey:@"本地缓存的图片不存在"}];
+                completedBlock(nil,error,YES);
+            }
+        }
+        return nil;
+    }
  
     if ([url hasPrefix:@"//"]) {
         url = [@"https:" stringByAppendingString:url];
