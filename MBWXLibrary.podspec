@@ -1,19 +1,19 @@
 # coding: utf-8
 Pod::Spec.new do |s|
-  s.name         = "BMBaseLibrary"
+  s.name         = "MBWXLibrary"
   s.version      = "1.3.0"
-  s.summary      = "WeexEros iOS App base library"
+  s.summary      = "MBWX iOS App base library"
   s.description  = <<-DESC
-                   WeexEros iOS App base library
+                   MBWX iOS App base library
                    DESC
 
-  s.homepage     = "https://github.com/bmfe/Benmu-iOS-Library"
+  s.homepage     = "https://github.com/eenapol/Benmu-iOS-Library"
   s.license      = "MIT"
-  s.author       = { "xionghuayu" => "18601949015@163.com" }
+  s.author       = { "napolees" => "769495678@qq.com" }
 
   s.platform     = :ios, "8.0"
   s.ios.deployment_target = "8.0"
-  s.source       = { :git => "https://github.com/bmfe/Benmu-iOS-Library.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/eenapol/Benmu-iOS-Library.git", :tag => s.version.to_s }
   s.requires_arc = true
   
   s.dependency 'YYText', '1.0.7'
